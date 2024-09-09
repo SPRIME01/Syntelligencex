@@ -1,0 +1,19 @@
+from SCons.Script import DefaultEnvironment, Default  # type: ignore
+
+# Create an environment
+env = DefaultEnvironment()
+
+# Define commands to run the tools
+env.Command('mypy', [], 'poetry run mypy .')
+env.Command('black', [], 'poetry run black .')
+env.Command('flake8', [], 'poetry run flake8 .')
+env.Command('pytest', [], 'poetry run pytest')
+env.Command('sphinx', [], 'poetry run sphinx-build -b html docs/source docs/build')
+env.Command('eslint', [], 'npx eslint . --ext .js,.ts')
+env.Command('prettier', [], 'npx prettier --write .')
+env.Command('tslint', [], 'npx tslint -p tsconfig.json')
+
+# Define a default target that runs all commands
+Default(['mypy', 'black', 'flake8', 'pytest', 'sphinx', 'eslint', 'prettier', 'tslint'])
+
+# Optionally, you can add custom build steps or dependencies
