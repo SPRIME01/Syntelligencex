@@ -1,0 +1,17 @@
+{
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.formatting.provider": "black",
+  "editor.formatOnSave": true,
+  "eslint.enable": true,
+  "tslint.enable": true,
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "python.testing.nosetestsEnabled": false,
+  "python.testing.pytestArgs": ["tests"],
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "prettier.singleQuote": true,
+  "prettier.printWidth": 88
+}

@@ -6,8 +6,9 @@ authors = ["Samuel Prime"]
 license = "MIT"
 readme = "README.md"
 
+
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.12"
 fastapi = "^0.114.0"
 uuid = "^1.30"
 
@@ -15,3 +16,24 @@ uuid = "^1.30"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.dev-dependencies]
+pre-commit = "^2.15.0"
+mypy = "^0.910"
+black = "^21.9b0"
+flake8 = "^3.9.2"
+pytest = "^6.2.5"
+pytest-bdd = "^4.0.2"
+sphinx = "^4.2.0"
+
+[tool.black]
+line-length = 88
+
+
+[tool.pre-commit]
+repos = [
+  { repo = "https://github.com/pre-commit/mirrors-mypy", rev = "v0.910", hooks = [{ id = "mypy" }] },
+  { repo = "https://github.com/psf/black", rev = "21.9b0", hooks = [{ id = "black" }] },
+  { repo = "https://github.com/pre-commit/mirrors-flake8", rev = "3.9.2", hooks = [{ id = "flake8" }] }
+]
