@@ -97,6 +97,12 @@ class Path:
 
 
 @dataclass
+class Resource:
+    id: UUID = field(default_factory=uuid4)
+    # Add other relevant attributes for Path
+
+
+@dataclass
 class ConceptualArtifact:
     id: UUID = field(default_factory=uuid4)
     name: str
@@ -123,7 +129,7 @@ class Project:
     models: List[ModelDefinition] = field(default_factory=list)
     artifacts: List[ConceptualArtifact] = field(default_factory=list)
     knowledge_base: Dict[str, Any] = field(default_factory=dict)
-    case: Optional[List[Case]] = field(default=None)
+    case: Optional[List['Case']] = field(default=None)
     status: str
     created_date: datetime = field(default_factory=datetime.now)
     updated_date: datetime = field(default_factory=datetime.now)
